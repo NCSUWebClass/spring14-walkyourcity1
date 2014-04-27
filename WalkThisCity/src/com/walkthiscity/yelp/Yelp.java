@@ -64,7 +64,9 @@ public class Yelp
 
         this.service.signRequest(this.accessToken, request);
         Response response = request.send();
+        System.out.println(response.toString());
         JsonObject o = new JsonParser().parse(response.getBody()).getAsJsonObject();
+        System.out.println(o.toString());
         JsonArray array = o.get("businesses").getAsJsonArray();
         Type listType = new TypeToken<List<Location>>() {}.getType();
         locs = new Gson().fromJson(o.get("businesses"), listType);
@@ -84,7 +86,8 @@ public class Yelp
         	loc.setAddress( strBuilder.toString() );
         	locs.get( i ).setAddress( strBuilder.toString().replace( "\"", "" ) );
         }
-    	
+
+        System.out.println(locs.toString());
     	return locs;
     }
 }

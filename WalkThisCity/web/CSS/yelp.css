@@ -13,3 +13,81 @@ th, td
 	color: #c40e28;
 	font-family:verdana;	
 }
+
+.content
+{
+    position: absolute;
+    top: 28px;
+    left: -400px;
+    background: white;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    opacity: 0;
+
+
+    overflow: hidden;
+    -webkit-transition: all .6s linear;
+    -moz-transition: all .6s linear;
+    transition: all .6s linear;
+}
+[type=radio]:checked ~ label
+{
+    background: white;
+    border-bottom: 1px solid white;
+    z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content
+{
+    z-index: 1;
+    opacity: 1;
+    left: 0;
+}
+.tabs
+{
+    position: relative;
+    min-height: 200px; /* This part sucks */
+    clear: both;
+    margin: 25px 0;
+}
+.tab
+{
+    float: left;
+}
+.tab label
+{
+    background: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-left: -1px;
+    position: relative;
+    left: 1px;
+}
+.tab [type=radio]
+{
+    display: none;
+}
+
+.content > *
+{
+    opacity: 0;
+
+    -webkit-transition: all .6s linear;
+    -moz-transition: all .6s linear;
+    transition: all .6s linear;
+}
+[type=radio]:checked ~ label
+{
+    background: white;
+    border-bottom: 1px solid white;
+    z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content
+{
+    z-index: 1;
+}
+[type=radio]:checked ~ label ~ .content > *
+{
+    opacity: 1;
+}

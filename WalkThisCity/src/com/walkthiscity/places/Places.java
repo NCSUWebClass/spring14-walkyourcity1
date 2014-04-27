@@ -98,10 +98,7 @@ public class Places
         String responseG = "";
         if (httpResponse.getResponseCode() == HttpURLConnection.HTTP_OK) {
           responseG = new String(httpResponse.getContent());
-        } 
-        
-        System.out.println("===================================");
-        System.out.println(responseG);
+        }
         
       JsonObject o = new JsonParser().parse(responseG).getAsJsonObject();
       JsonArray array = o.get("results").getAsJsonArray();
@@ -126,16 +123,4 @@ public class Places
         
         return locs;
     }
-	
-	public static void main(String[] args)
-	{
-		Places places = new Places("AIzaSyDAE8nd_Tlb35ocQxqI8WmmKpzT9I0zLXU");
-		
-		try {
-			places.search("burgers", 35.77198, -78.67385);
-		} catch (URISyntaxException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 }

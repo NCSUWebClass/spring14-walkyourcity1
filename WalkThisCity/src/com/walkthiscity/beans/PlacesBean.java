@@ -10,6 +10,18 @@ public class PlacesBean
 	
 	private String phone = "No Phone Provided";
 
+    private String distance = "No Distance Provided";
+
+    private String fastTime = "No Distance Provided";
+
+    private String moderateTime = "No Distance Provided";
+
+    private String slowTime = "No Distance Provided";
+
+    private String walkscore = "No Walkscore Provided";
+
+    private String walkDescription = "No Description Provided";
+
 	public String getName()
 	{
 		return name;
@@ -57,8 +69,56 @@ public class PlacesBean
 			return;
 		this.phone = phoneNumber;
 	}
-	
-	public String toString()
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getFastTime() {
+        return fastTime;
+    }
+
+    public void setFastTime(String fastTime) {
+        this.fastTime = fastTime;
+    }
+
+    public String getModerateTime() {
+        return moderateTime;
+    }
+
+    public void setModerateTime(String moderateTime) {
+        this.moderateTime = moderateTime;
+    }
+
+    public String getSlowTime() {
+        return slowTime;
+    }
+
+    public void setSlowTime(String slowTime) {
+        this.slowTime = slowTime;
+    }
+
+    public String getWalkscore() {
+        return walkscore;
+    }
+
+    public void setWalkscore(String walkscore) {
+        this.walkscore = walkscore;
+    }
+
+    public String getWalkDescription() {
+        return walkDescription;
+    }
+
+    public void setWalkDescription(String walkDescription) {
+        this.walkDescription = walkDescription;
+    }
+
+    public String toString()
 	{
 		return name + "  " + formatted_address + "  " + rating + "  " + phone;
 	}

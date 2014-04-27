@@ -10,12 +10,58 @@ public class Location
 	
 	private String phone = "No Phone Provided";
 
+    private String distance = "No Distance Provided";
+
+    private String fastTime = "No Distance Provided";
+
+    private String moderateTime = "No Distance Provided";
+
+    private String slowTime = "No Distance Provided";
+
+    private String walkscore = "No Walkscore Provided";
+
+    private String walkDescption = "No Description Provided";
+
 	public String getName()
 	{
 		return name;
 	}
 
-	public void setName( String name )
+    public String getDistance()
+    {
+        return distance;
+    }
+
+    public void setDistance(String aDistance)
+    {
+        this.distance = aDistance;
+    }
+
+    public String getFastTime() {
+        return fastTime;
+    }
+
+    public String getModerateTime() {
+        return moderateTime;
+    }
+
+    public String getSlowTime() {
+        return slowTime;
+    }
+
+    public void setFastTime(String fastTime) {
+        this.fastTime = fastTime;
+    }
+
+    public void setModerateTime(String moderateTime) {
+        this.moderateTime = moderateTime;
+    }
+
+    public void setSlowTime(String slowTime) {
+        this.slowTime = slowTime;
+    }
+
+    public void setName( String name )
 	{
 		if(name == null)
 			return;
@@ -57,8 +103,24 @@ public class Location
 			return;
 		this.phone = phoneNumber;
 	}
-	
-	public String toString()
+
+    public String getWalkscore() {
+        return walkscore;
+    }
+
+    public void setWalkscore(String walkscore) {
+        this.walkscore = walkscore;
+    }
+
+    public String getWalkDescption() {
+        return walkDescption;
+    }
+
+    public void setWalkDescption(String walkDescption) {
+        this.walkDescption = walkDescption;
+    }
+
+    public String toString()
 	{
 		return name + "  " + display_address + "  " + rating + "  " + phone;
 	}
