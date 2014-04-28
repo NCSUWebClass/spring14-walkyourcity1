@@ -12,14 +12,16 @@
 <link href = "CSS/yelp.css" rel="stylesheet" type="text/css"/>
 </head>User is presented with a message saying: ?Zip code must be 5 digits?
 <body>
+<div class="center">
 	<form id = "form1" action = "SearchServlet" method = "post">
 		Enter Search Term: <input type = "text" name = "searchTerm"><br>
 		Enter Address: <input id = "address" type = "text" name = "address"><br>
         Enter Latitude (Optional): <input id = "lat" type = "text" name = "lat"><br>
         Enter Longitude (Optional): <input id = "lng" type = "text" name = "lng"><br>
-		<input type = "submit" name = "submitButton" value = "Submit">		
+		<button class="button" onclick="getLocation()">Use Current Location</button>
+		<input class="button" type = "submit" name = "submitButton" value = "Submit">		
 	</form>
-    <button onclick="getLocation()">Use Current Location</button>
+    
     <script type="text/javascript">
         var x=document.getElementById("demo");
         function getLocation()
@@ -37,6 +39,7 @@
         }
     </script>
 
+<div class="center">
 <div class = "tabs">
     <div class = "tab">
         <input type = "radio" id = "tab-1" name = "tab-group-1" checked>
@@ -147,6 +150,8 @@
             stuff 3
         </div>
     </div>
+ </div>
+ </div>
  </div>
 </body>
 </html>
