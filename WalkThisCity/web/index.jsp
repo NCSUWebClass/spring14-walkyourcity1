@@ -19,7 +19,6 @@
 	<form id = "form1" action = "SearchServlet" method = "post">
 		
 	<div class="left-aligned">
-		<form id = "form1" action = "SearchServlet" method = "post">
 			<table>
 				<tr>
 					<td>
@@ -54,7 +53,9 @@
 					</td>
 				</tr>
 			</table>
-		<input class="button" type = "submit" name = "submitButton" value = "Submit">		
+		<input class="button" type = "submit" name = "submitButton" value = "Submit">
+        <button class="button" type = "button" onclick="getLocation()">Use Current Location</button>
+        </div>
 	</form>
     <script type="text/javascript">
         var x=document.getElementById("demo");
@@ -72,8 +73,12 @@
             document.getElementById("lng").value = position.coords.longitude;
         }
     </script>
-        <button class="button" type = "button" onclick="getLocation()">Use Current Location</button>
 <div class="center">
+    <%
+        if(request.getAttribute("locations") != null && request.getAttribute("places") != null)
+        {
+
+    %>
 <div class = "tabs">
     <div class = "tab">
         <input type = "radio" id = "tab-1" name = "tab-group-1" checked>
@@ -186,6 +191,9 @@
     </div>
  </div>
  </div>
+    <%
+        }
+    %>
  </div>
 </body>
 </html>
