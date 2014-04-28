@@ -1,5 +1,31 @@
 @CHARSET "US-ASCII";
 
+body
+{
+margin-top:0;
+background-color:#FFFFD6;
+}
+
+#header{
+	margin-right:auto;
+	margin-left:auto;
+	width:80%;
+}
+
+#header img {
+	width:100%;
+}
+
+
+.center {
+	padding-top:2%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	width:80%;
+	height:100%;
+}
+
 table, td, th
 {
 	border:1px solid #535353;
@@ -10,8 +36,12 @@ table, td, th
 }
 th, td
 {
-	color: #c40e28;
 	font-family:verdana;	
+}
+
+th {
+	background-color:#652893;
+	color:white;
 }
 
 .content
@@ -25,6 +55,7 @@ th, td
     padding: 20px;
     border: 1px solid #ccc;
     opacity: 0;
+	margin-right: 100px;
 
 
     overflow: hidden;
@@ -49,7 +80,12 @@ th, td
     position: relative;
     min-height: 200px; /* This part sucks */
     clear: both;
+
     margin: 25px 0;
+}
+
+.tabs > * {
+	margin-right:0;
 }
 .tab
 {
@@ -63,10 +99,12 @@ th, td
     margin-left: -1px;
     position: relative;
     left: 1px;
+	font-family:verdana;
 }
 .tab [type=radio]
 {
     display: none;
+	
 }
 
 .content > *
@@ -81,6 +119,8 @@ th, td
 {
     background: white;
     border-bottom: 1px solid white;
+	background-color:#652893;
+	color:white;
     z-index: 2;
 }
 [type=radio]:checked ~ label ~ .content
@@ -91,3 +131,47 @@ th, td
 {
     opacity: 1;
 }
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #757575;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #757575;
+	box-shadow:inset 0px 1px 0px 0px #757575;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #955cc4), color-stop(1, #652893) );
+	background:-moz-linear-gradient( center top, #955cc4 5%, #652893 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#955cc4', endColorstr='#652893');
+	background-color:#955cc4;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	line-height:30px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #000000;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #652893), color-stop(1, #955cc4) );
+	background:-moz-linear-gradient( center top, #652893 5%, #955cc4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#652893', endColorstr='#955cc4');
+	background-color:#652893;
+}.button:active {
+	position:relative;
+	top:1px;
+	}
+/* This button was generated using CSSButtonGenerator.com */
