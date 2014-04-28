@@ -14,10 +14,43 @@
 <body>
 <div class="center">
 	<form id = "form1" action = "SearchServlet" method = "post">
-		Enter Search Term: <input type = "text" name = "searchTerm"><br>
-		Enter Address: <input id = "address" type = "text" name = "address"><br>
-        Enter Latitude (Optional): <input id = "lat" type = "text" name = "lat"><br>
-        Enter Longitude (Optional): <input id = "lng" type = "text" name = "lng"><br>
+		
+	<div class="left-aligned">
+		<form id = "form1" action = "SearchServlet" method = "post">
+			<table>
+				<tr>
+					<td>
+						Enter Search Term:
+					</td>
+					<td>
+						<input type = "text" name = "searchTerm">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Address:
+					</td>
+					<td>
+						<input id = "address" type = "text" name = "address">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Latitude (Optional):
+					</td>
+					<td>
+						<input id = "lat" type = "text" name = "lat">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Longitude (Optional):
+					</td>
+					<td>
+						<input id = "lng" type = "text" name = "lng">
+					</td>
+				</tr>
+			</table>
 		<button class="button" onclick="getLocation()">Use Current Location</button>
 		<input class="button" type = "submit" name = "submitButton" value = "Submit">		
 	</form>
@@ -147,7 +180,7 @@
         <label for="tab-3">Dark Skies</label>
 
         <div class="content">
-            stuff 3
+            Not Yet Implemented.
         </div>
     </div>
  </div>
