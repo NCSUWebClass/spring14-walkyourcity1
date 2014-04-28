@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Walk This City</title>
 <link href = "CSS/yelp.css" rel="stylesheet" type="text/css"/>
-</head>
+</head>User is presented with a message saying: ?Zip code must be 5 digits?
 <body>
 <div class="center">
 	<form id = "form1" action = "SearchServlet" method = "post">

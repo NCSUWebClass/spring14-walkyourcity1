@@ -53,13 +53,17 @@ public class SearchServlet extends HttpServlet
         System.out.println("address" + address);
         System.out.println("lat" + lat);
         System.out.println("lng" + lng);
+        List<Location> locs;
         if(lat != null && lng != null && (address == null || address.equals("")))
         {
             GeoLocation closeLoc = new GeoLocation(Double.parseDouble(lat), Double.parseDouble(lng));
             address = closeLoc.getAddress();
+            locs = yelp.search( searchTerm, Double.parseDouble(lat), Double.parseDouble(lng) );
         }
-
-        List<Location> locs = yelp.search( searchTerm, address );
+        else
+        {
+            locs = yelp.search(searchTerm, address);
+        }
 
         GeoLocation geo = new GeoLocation(address);
 
@@ -88,9 +92,9 @@ public class SearchServlet extends HttpServlet
             Double fastTime = new Double(Double.parseDouble(dis.getValue()) * .000621371 * 10);
             loc.setFastTime(Converter.convertTime(fastTime.intValue()));
             GeoLocation geoLoc = new GeoLocation(loc.getAddress());
-            List<String> walk = WalkScore.getWalkScore(geoLoc.getLat(), geoLoc.getLon(), loc.getAddress());
-            loc.setWalkscore(walk.get(0));
-            loc.setWalkDescption(walk.get(1));
+            //List<String> walk = WalkScore.getWalkScore(geoLoc.getLat(), geoLoc.getLon(), loc.getAddress());
+            loc.setWalkscore("88");
+            loc.setWalkDescption("Travis Test");
         }
 
         for(PlacesBean place : placesBean)
@@ -103,9 +107,9 @@ public class SearchServlet extends HttpServlet
             Double fastTime = new Double(Double.parseDouble(dis.getValue()) * .000621371 * 10);
             place.setFastTime(Converter.convertTime(fastTime.intValue()));
             GeoLocation geoLoc = new GeoLocation(place.getAddress());
-            List<String> walk = WalkScore.getWalkScore(geoLoc.getLat(), geoLoc.getLon(), place.getAddress());
-            place.setWalkscore(walk.get(0));
-            place.setWalkDescription(walk.get(1));
+            //List<String> walk = WalkScore.getWalkScore(geoLoc.getLat(), geoLoc.getLon(), place.getAddress());
+            place.setWalkscore("88");
+            place.setWalkDescription("Travis Test");
         }
 
         request.setAttribute( "places", placesBean );
