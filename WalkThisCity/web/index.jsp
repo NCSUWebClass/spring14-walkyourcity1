@@ -10,8 +10,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Walk This City</title>
 <link href = "CSS/yelp.css" rel="stylesheet" type="text/css"/>
-</head>User is presented with a message saying: ?Zip code must be 5 digits?
+</head>
 <body>
+<div id = "header">
+    <img src="images/header.jpg"/>
+</div>
 <div class="center">
 	<form id = "form1" action = "SearchServlet" method = "post">
 		
@@ -51,10 +54,8 @@
 					</td>
 				</tr>
 			</table>
-		<button class="button" onclick="getLocation()">Use Current Location</button>
 		<input class="button" type = "submit" name = "submitButton" value = "Submit">		
 	</form>
-    
     <script type="text/javascript">
         var x=document.getElementById("demo");
         function getLocation()
@@ -71,7 +72,7 @@
             document.getElementById("lng").value = position.coords.longitude;
         }
     </script>
-
+        <button class="button" type = "button" onclick="getLocation()">Use Current Location</button>
 <div class="center">
 <div class = "tabs">
     <div class = "tab">
