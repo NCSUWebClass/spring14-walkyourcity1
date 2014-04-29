@@ -42,16 +42,41 @@ public class Yelp
         this.accessToken = new Token(token, tokenSecret);
     }
 
-    public String search( String term, double latitude, double longitude )
+    public List<Location> search( String searchTerm, double latitude, double longitude )
     {
+        List<Location> locs;
         OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search" );
-        request.addQuerystringParameter("term", term);
-        request.addQuerystringParameter("location", "890 Oval Drive, Raleigh, NC 27606");
-        request.addQuerystringParameter("radius", "15");
+        request.addQuerystringParameter("term", searchTerm);
+        request.addQuerystringParameter("ll", "" + latitude + "," + longitude);
+        request.addQuerystringParameter("radius", "2");
 
         this.service.signRequest(this.accessToken, request);
         Response response = request.send();
-        return response.getBody();
+        System.out.println(response.toString());
+        JsonObject o = new JsonParser().parse(response.getBody()).getAsJsonObject();
+        System.out.println(o.toString());
+        JsonArray array = o.get("businesses").getAsJsonArray();
+        Type listType = new TypeToken<List<Location>>() {}.getType();
+        locs = new Gson().fromJson(o.get("businesses"), listType);
+        for(int i = 0; i < locs.size(); i++)
+        {
+            Location loc = locs.get( i );
+            JsonObject business = array.get( i ).getAsJsonObject();
+            JsonArray addressArray = business.get( "location" ).getAsJsonObject().get( "display_address" ).getAsJsonArray();
+            StringBuilder strBuilder = new StringBuilder();
+            for(int j = 0; j < addressArray.size(); j++)
+            {
+                strBuilder.append( addressArray.get( j ));
+                if(j % 2 != 0 || j == 0)
+                    strBuilder.append( " " );
+            }
+
+            loc.setAddress( strBuilder.toString() );
+            locs.get( i ).setAddress( strBuilder.toString().replace( "\"", "" ) );
+        }
+
+        System.out.println(locs.toString());
+        return locs;
     }
     
     public List<Location> search(String searchTerm, String address)
@@ -60,7 +85,7 @@ public class Yelp
     	OAuthRequest request = new OAuthRequest(Verb.GET, "http://api.yelp.com/v2/search" );
         request.addQuerystringParameter("term", searchTerm);
         request.addQuerystringParameter("location", address);
-        request.addQuerystringParameter("radius", "15");
+        request.addQuerystringParameter("radius", "2");
 
         this.service.signRequest(this.accessToken, request);
         Response response = request.send();

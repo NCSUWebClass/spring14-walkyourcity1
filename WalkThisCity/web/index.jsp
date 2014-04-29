@@ -8,18 +8,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Walk This City</title>
+<title>Walk [Your City]</title>
 <link href = "CSS/yelp.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<div id = "header">
+    <img src="images/header.jpg"/>
+</div>
+<div class="center">
 	<form id = "form1" action = "SearchServlet" method = "post">
-		Enter Search Term: <input type = "text" name = "searchTerm"><br>
-		Enter Address: <input id = "address" type = "text" name = "address"><br>
-        Enter Latitude (Optional): <input id = "lat" type = "text" name = "lat"><br>
-        Enter Longitude (Optional): <input id = "lng" type = "text" name = "lng"><br>
-		<input type = "submit" name = "submitButton" value = "Submit">		
+		
+	<div class="left-aligned">
+			<table>
+				<tr>
+					<td>
+						Enter Search Term:
+					</td>
+					<td>
+						<input type = "text" name = "searchTerm">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Address:
+					</td>
+					<td>
+						<input id = "address" type = "text" name = "address">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Latitude (Optional):
+					</td>
+					<td>
+						<input id = "lat" type = "text" name = "lat">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Enter Longitude (Optional):
+					</td>
+					<td>
+						<input id = "lng" type = "text" name = "lng">
+					</td>
+				</tr>
+			</table>
+		<input class="button" type = "submit" name = "submitButton" value = "Submit">
+        <button class="button" type = "button" onclick="getLocation()">Use Current Location</button>
+        </div>
 	</form>
-    <button onclick="getLocation()">Use Current Location</button>
     <script type="text/javascript">
         var x=document.getElementById("demo");
         function getLocation()
@@ -36,7 +73,12 @@
             document.getElementById("lng").value = position.coords.longitude;
         }
     </script>
+<div class="center">
+    <%
+        if(request.getAttribute("locations") != null && request.getAttribute("places") != null)
+        {
 
+    %>
 <div class = "tabs">
     <div class = "tab">
         <input type = "radio" id = "tab-1" name = "tab-group-1" checked>
@@ -144,9 +186,14 @@
         <label for="tab-3">Dark Skies</label>
 
         <div class="content">
-            stuff 3
+            Not Yet Implemented.
         </div>
     </div>
+ </div>
+ </div>
+    <%
+        }
+    %>
  </div>
 </body>
 </html>

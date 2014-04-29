@@ -53,13 +53,17 @@ public class SearchServlet extends HttpServlet
         System.out.println("address" + address);
         System.out.println("lat" + lat);
         System.out.println("lng" + lng);
+        List<Location> locs;
         if(lat != null && lng != null && (address == null || address.equals("")))
         {
             GeoLocation closeLoc = new GeoLocation(Double.parseDouble(lat), Double.parseDouble(lng));
             address = closeLoc.getAddress();
+            locs = yelp.search( searchTerm, Double.parseDouble(lat), Double.parseDouble(lng) );
         }
-
-        List<Location> locs = yelp.search( searchTerm, address );
+        else
+        {
+            locs = yelp.search(searchTerm, address);
+        }
 
         GeoLocation geo = new GeoLocation(address);
 
